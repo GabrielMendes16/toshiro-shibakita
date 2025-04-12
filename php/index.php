@@ -6,6 +6,7 @@
 <body>
 
 <?php
+phpinfo();
 ini_set("display_errors", 1);
 header('Content-Type: text/html; charset=iso-8859-1');
 
