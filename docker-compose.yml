@@ -1,0 +1,29 @@
+version: '3.8'
+
+services:
+  php-app:
+    build:
+      context: .
+      dockerfile: dockerfile
+    environment:
+      DB_HOST: 3.141.8.42 # substitua pelo IP real
+      DB_USER: appuser
+      DB_PASS: senha123
+      DB_NAME: meubanco
+    networks:
+      - app-network
+
+  nginx:
+    image: nginx:latest
+    ports:
+      - "4500:4500"
+    volumes:
+      - ./nginx.conf:/etc/nginx/nginx.conf
+    depends_on:
+      - php-app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
