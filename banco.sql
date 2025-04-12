@@ -6,3 +6,4 @@ CREATE TABLE dados (
     Cidade varchar(50),
     Host varchar(50)
 );
+ 
